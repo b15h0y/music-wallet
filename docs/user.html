@@ -23,7 +23,7 @@
       Tip 2: you can also add an image using data-image tag
   -->
       <div class="logo">
-        <a class="simple-text logo-normal">
+        <a class="simple-text logo-normal" href="index.html">
           Music Wallet
         </a>
       </div>
@@ -58,40 +58,41 @@
       <div class="content">
           <div class="container-fluid">
             <div class="row">
-                <div class="col-md-8.5">
+                <div class="col-md-12">
                     <div class="card card-chart">
                       <div class="card-header card-header-success">
+					  <h4 class="card-title">Pay</h4>
                       </div>
                       <div class="card-body">
-                        <h4 class="card-title">Pay</h4>
                         <form>
-                        <div class="row">
-                          <div class="col-md-12">
-						  <div class="form-group">
-							<input class="ng-hide" id="input-file-id" multiple type="file" />
-							<label for="input-file-id" class="btn btn-primary">Choose Files <i class="material-icons">add</i></label>
-                            <!--<input type="file" class="form-control" id="file">-->
-                          </div>
-                          </div>
-                        </div>
-						<div class="col-md-12 pull-right">
-							<div class="form-group">
-								<label class="">------OR-------</label><br>
-								  <label class="bmd-label-floating">Project Title</label>
-								  <input type="text" class="form-control" id="address">
+							<div class="row">
+							  <div class="col-md-12">
+							  <div class="form-group">
+								<input class="ng-hide" id="input-file-id" multiple type="file" />
+								<label for="input-file-id" class="btn btn-primary">Choose Files <i class="material-icons">add</i></label>
+								<!--<input type="file" class="form-control" id="file">-->
+							  </div>
+							  </div>
 							</div>
-						</div>
-                        <div class="row">
-                          <div class="col-md-12">
-                            <div class="form-group">
-                              <label class="bmd-label-floating">Amount (Ξ)</label>
-                              <input type="text" class="form-control" id="amount">
-                            </div>
-                          </div>
-                        </div>
-                        <button type="submit" class="btn btn-primary pull-right" onClick="pay(); return false">Pay</button>
-                        <div class="clearfix"></div>
-                      </form>
+							<div class="row">
+							<div class="col-md-12">
+								<div class="form-group">	
+									<label class="bmd-label-floating">Project Title</label>
+									<input type="text" class="form-control" id="name">
+								</div>
+							</div>
+							</div>
+							<div class="row">
+							  <div class="col-md-12">
+								<div class="form-group">
+								  <label class="bmd-label-floating">Amount (Ξ)</label>
+								  <input type="text" class="form-control" id="amount">
+								</div>
+							  </div>
+							</div>
+							<button type="submit" class="btn btn-primary pull-right" onClick="pay(); return false">Pay</button>
+							<div class="clearfix"></div>
+						</form>
                       </div>                      
                     </div>
                   </div>
