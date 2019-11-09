@@ -78,7 +78,7 @@
 							<div class="form-group">
 								<label class="">------OR-------</label><br>
 								  <label class="bmd-label-floating">Project Title</label>
-								  <input type="text" class="form-control" id="address">
+								  <input type="text" class="form-control" id="title">
 							</div>
 						</div>
                         <div class="row">
@@ -168,7 +168,25 @@
   <script src="assets/js/web3-app.js"></script>
   <script src="assets/js/events.js"></script>
 
+   <script>
+      function onWeb3Initialized() {
+        console.log("Web3");
+      }
   
+      $(document).ready(function() {
+        // Javascript method's body can be found in assets/js/demos.js
+        md.initDashboardPageCharts();
+        App.init(onWeb3Initialized);
+  
+      });
+  
+      async function pay() {    
+        const hash = document.getElementById('title').value;
+        const amount = parseFloat(document.getElementById('amount').value);
+        console.log("Pay Called", hash, amount);  
+        App.payProject(hash, amount);  
+      }
+  </script>
 
 </body>
 
