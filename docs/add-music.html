@@ -14,6 +14,8 @@
   <link href="assets/css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
   
   <link href="assets/css/fileupload.css" rel="stylesheet" />
+  
+  <link href="assets/css/slider.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -246,9 +248,19 @@
                                  "</div></div></div>"+
                                  "<div class='row'><div class='col-md-12'>"+
                                  "<div class='form-group'><label class='bmd-label-floating'>Collaborator's Ethereum Address</label><input type='text' class='form-control' id='address" + count + "'>"+
-                                 "</div></div></div></div>");
+                                 "</div></div></div><div class='slidecontainer'>"+
+								 "<input type='range' min='1' max='100' value='50' class='slider' id='myRange'>"+
+									"<p>Percentage: <span id='demo'></span></p></div></div>");
         count ++;
       }
+	  
+		var slider = document.getElementById("myRange");
+		var output = document.getElementById("demo");
+		output.innerHTML = slider.value;
+
+		slider.oninput = function() {
+		  output.innerHTML = this.value;
+		}
   </script>
   
 </body>
