@@ -172,9 +172,9 @@
                       </div-->
                       <button type="submit" class="btn btn-primary pull-right" onClick="register(); return false">Register</button>
                       <div class="clearfix"></div>
-					  <div class="progress pull-right" style="height: 3px;width: 25%;">
+					  <!-- <div class="progress pull-right" style="height: 3px;width: 25%;">
 						  <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-					  </div>
+					  </div> -->
                     </form>
                   </div>
                 </div>
@@ -224,6 +224,12 @@
   
       });
   
+      function updateSlider(id, val) {
+        console.log(id, parseInt(val));
+        var output = document.getElementById("demo" + id);
+        output.innerHTML = val;
+      }
+
       async function register() { 
         console.log("Register")   
         const name = document.getElementById('name').value;
@@ -249,15 +255,12 @@
                                  "<div class='row'><div class='col-md-12'>"+
                                  "<div class='form-group'><label class='bmd-label-floating'>Collaborator's Ethereum Address</label><input type='text' class='form-control' id='address" + count + "'>"+
                                  "</div></div></div><div class='slidecontainer'>"+
-								 "<input type='range' min='1' max='100' value='50' class='slider' id='myRange'>"+
-									"<p>Percentage: <span id='demo'></span></p></div></div>");
+								                "<input type='range' min='1' max='100' value='50' class='slider' id='myRange'" +
+                                "onchange='updateSlider(" + count + ", this.value)'>"+
+									"<p>Percentage: <span id='demo" + count + "'>50</span></p></div></div>");
         count ++;
       }
 	  
-		var slider = document.getElementById("myRange");
-		var output = document.getElementById("demo");
-		output.innerHTML = slider.value;
-
 		slider.oninput = function() {
 		  output.innerHTML = this.value;
 		}
