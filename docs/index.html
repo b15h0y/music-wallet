@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   <!-- Material Kit CSS -->
   <link href="assets/css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
-
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
   <style>
       .content {
         max-width: 1500px;
@@ -22,17 +22,20 @@
       .container {
           max-width: 1500px;
           height: 100%;
+		  z-index: 2;
           display: flex;
           justify-content: center;
           align-items: center;
           margin-top: 100px;
       }
-      </style>
+   </style>
       
 </head>
 
 
 <body>
+<div id="particles-js"></div>
+<div>
   <div class="container">
     <!--
       Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
@@ -49,7 +52,22 @@
       <a class="btn btn-primary btn-lg" href='user.html'>Pay</a>
 
   </div>
-
+  <section class="cd-intro">
+    	<h1 class="cd-headline rotate-1">
+			<span>For Every</span>
+			<span class="cd-words-wrapper">
+				<b class="is-visible" style="left:0;">Note</b>
+				<b><i class="material-icons">euro_symbol</i></b>
+				<b style="right:0%;"><i class="material-icons">music_note</i></b>
+			</span>
+			<span>You Create</span>
+		</h1>
+  </section>
+</div>
+<script type="text/javascript" src="assets/js/particles.js"></script>
+<script src="assets/js/core/jquery.min.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/animation.js"></script>
 
 </body>
 
