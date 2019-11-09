@@ -160,20 +160,13 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="card card-chart">
-                      <div class="card-header card-header-success">
-                        <div class="ct-chart" id="dailySalesChart"></div>
-                      </div>
-                      <div class="card-body">
-                        <h4 class="card-title">Monthly Income</h4>
-                        <!--p class="card-category">
-                          <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55% </span> increase in today sales.</p-->
-                      </div>
-                      <!--div class="card-footer">
-                        <div class="stats">
-                          <i class="material-icons">access_time</i> updated 4 minutes ago
-                        </div>
-                      </div-->
-                    </div>
+						<div class="card-header card-header-success">
+						  <div class="ct-chart" id="websiteViewsChart"></div>
+						</div>
+						<div class="card-body">
+						  <h4 class="card-title">Monthly Income</h4>
+						</div>
+					</div>
                 </div>
                 <div class="col-md-6">
                     <div class="card card-chart">
@@ -227,22 +220,65 @@
               <div class="col-md-12">
                 <div class="card">
                   <div class="card-header card-header-danger">
-                    <h4 class="card-title" id="allocations">Budget Allocations</h4>                    
+                    <h4 class="card-title" id="allocations">Recent Projects</h4>                    
                   </div>
-                  <div class="card-body table-responsive">
-                    <table class="table table-hover">
-                      <thead class="text-warning">                        
-                        <th>Employee</th>
-                        <th>Budget</th>
-                        <th>City</th>
-                        <th>Start</th>
-                        <th>End</th>
-                        <th>Category</th>
-                      </thead>
-                      <tbody id="table_claims">                        
-                      </tbody>
-                    </table>
-                  </div>
+                  <div class="table-responsive table-responsive-data2">
+					<table class="table table-data2">
+						<thead>
+							<tr>
+								<th>Music Title</th>
+								<th>Total Earning</th>
+								<th>date</th>
+								<th>status</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="tr-shadow">
+								<td>High for the weekend</td>
+								<td class="desc">$42,563</td>
+								<td>2019-09-27 02:12</td>
+								<td>
+									<span class="status--process">Active</span>
+								</td>
+								
+							</tr>
+							<tr class="spacer"></tr>
+							<tr class="tr-shadow">
+								<td>Moveaway</td>
+								<td class="desc">$33,455</td>
+								<td>2019-04-29 05:57</td>
+								<td>
+									<span class="status--process">Active</span>
+								</td>
+							</tr>
+							<tr class="spacer"></tr>
+							<tr class="tr-shadow">
+								<td>Highway rider</td>
+								<td class="desc">$8,466</td>
+								<td>2018-09-25 19:03</td>
+								<td>
+									<span class="status--denied">Inactive</span>
+								</td>
+							</tr>
+							<tr class="spacer"></tr>
+							<tr class="tr-shadow">
+								<td>With you</td>
+								<td class="desc">$1,214,333</td>
+								<td>2018-09-24 19:10</td>
+								<td>
+									<span class="status--process">Active</span>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+									
+                   </div>
+				   <br>
+				   <div class="morebutton" style="display:inline-block;text-align:center;">
+				   <a href="my-library.html"><button class="btn btn-green">See All</button></a>
+				   </div>
+				   <br>
                 </div>
               </div>
             </div>
@@ -302,7 +338,10 @@
   <script src="assets/js/material-dashboard.js?v=2.1.1" type="text/javascript"></script>
   <!--pie chart categories-->
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-
+  <!--  DataTables.net Plugin, full documentation here: https://datatables.net/  -->
+  <script src="assets/js/plugins/jquery.dataTables.min.js"></script>
+  <!-- Library for adding dinamically elements -->
+  <script src="assets/js/plugins/arrive.min.js"></script>
   <!--web3-apps-->
   <script src="assets/js/web3-app.js"></script>
   <script src="assets/js/events.js"></script>
