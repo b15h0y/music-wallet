@@ -118,7 +118,6 @@
                         <div class="col-md-12">
                           <div class="form-group">
                             <input type="button" value="Add Collaborators" class="btn btn-primary" id="addfield" onClick="addCollab()"/>
-							               <input type="button" value="Remove Field" class="btn btn-primary" id="removefield"/>
                           </div>
                         </div>
                       </div>
@@ -233,7 +232,7 @@
           }
         }
         console.log("Register Called", name, collaborators);  
-        App.addProject(name, name, collaborators);  
+        App.addProject(name, hash_file, collaborators);  
       }
       var count = 0;
 

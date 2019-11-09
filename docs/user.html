@@ -73,7 +73,7 @@
 							  <form action="#">
 								  <div class="input-file-container">  
 									<input class="input-file" id="my-file" type="file">
-									<label tabindex="0" for="my-file" class="input-file-trigger btn btn-primary" onClick="addbutton();">Upload a file</label>
+									<label tabindex="0" for="my-file" class="input-file-trigger btn btn-primary">Upload a file</label>
 								  </div>
 								  <p class="file-return"></p>
 							  </form>
@@ -111,7 +111,7 @@
                       <i class="material-icons">attach_money</i>
                     </div>
                     <p class="card-category">Balance</p>
-                    <h3 class="card-title">$0
+                    <h3 class="card-title" id="balance">$0
                     </h3>
                   </div>
                   <div class="card-footer">
@@ -178,31 +178,43 @@
   <script src="assets/js/add.js"></script>
 
    <script>
-      function onWeb3Initialized() {
+      async function onWeb3Initialized() {
         console.log("Web3");
+        await updateBalance();
       }
   
       $(document).ready(function() {
-        // Javascript method's body can be found in assets/js/demos.js
         md.initDashboardPageCharts();
         App.init(onWeb3Initialized);
-  
       });
-  
-      
 
-      async function pay() {    
-        const file = document.getElementById("input-file-id").files[0];
-        const hash_file = await hash(file);
-        console.log(hash_file);
+      async function pay() {
+        var title = document.getElementById('name').value;
+        var hash_file = "";
+        if(title != "") {
+          hash_file = await App.getHash(title);
+          console.log(hash_file);
+        } else {
+          const file = document.getElementById("my-file").files[0];
+          hash_file = await hash(file);
+          console.log(hash_file);
+        }
         const amount = parseFloat(document.getElementById('amount').value);
         console.log("Pay Called", hash_file, amount);  
         App.payProject(hash_file, amount);  
       }
 
-      function addbutton(){ 
-              $("#upfile").append("<button type='submit' class='btn btn-primary' onClick='identifyfile(); return false'>Identify</button>");  
-            }
+      async function updateBalance() {
+        var balance = await App.getBalance();
+        document.getElementById("balance").innerText = balance.c[0];
+      }
+
+      function pausecomp(millis){
+          var date = new Date();
+          var curDate = null;
+          do { curDate = new Date(); }
+          while(curDate-date < millis);
+      }
   </script>
 
 </body>

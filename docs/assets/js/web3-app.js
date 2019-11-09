@@ -3,7 +3,7 @@
 
 App = {
   account: '',
-  address: '0x326f8a3e04fb4a82c06d726206e191c58a3017af',
+  address: '0x53a3d9223d4b12dbc960afa0c26a1043fd02e644',
   contract: '',
   options: {
     from: this.account
@@ -23,7 +23,7 @@ App = {
     return App.init_contract(run);
   },
 
-  get_balance: async function() {
+  getBalance: async function() {
     return await promisify(cb => web3.eth.getBalance(App.account, cb));
   },
 
@@ -54,6 +54,11 @@ App = {
   getProject: async function(hash) {
     console.log("Get Web3 Project ");
     return await promisify(cb => App.contract.getProject(hash, App.options, cb));
+  },
+
+  getHash: async function(name) {
+    console.log("Get Web3 Project ");
+    return await promisify(cb => App.contract.getHash(name, App.options, cb));
   }
 
 };

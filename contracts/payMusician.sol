@@ -10,13 +10,15 @@ contract payMusician {
     }
 
     mapping(string=>Project) public Projects;
+    mapping(string=>string) public Hash;
 
     event register(string indexed hash, address indexed owner);
-    event pay(string indexed hash, address indexed payee);
+    event pay(address payable indexed owner, address payee, uint amount);
     
     function addProject(string memory name, string memory hash, address payable[] memory collaborators) public {
         Project memory newProject = Project(1, name, hash, msg.sender, collaborators);
         Projects[hash] = newProject;
+        Hash[name] = hash;
         emit register(hash, msg.sender);
     }
 
@@ -27,12 +29,17 @@ contract payMusician {
         uint collaboratorsCount = currProject.collaborators.length;
         for (uint i=0; i < collaboratorsCount; i++) {
             currProject.collaborators[i].transfer(total / collaboratorsCount);
+            emit pay(currProject.collaborators[i], msg.sender, total / collaboratorsCount);
         }
-        emit pay(hash, msg.sender);
     }
     
     function getProject(string memory hash) public view returns(address payable[] memory) {
         require(Projects[hash].exists == 1);
         return Projects[hash].collaborators;
     }
+    
+    function getHash(string memory name) public view returns(string memory hash) {
+        return Hash[name];
+    }
+    
 }
