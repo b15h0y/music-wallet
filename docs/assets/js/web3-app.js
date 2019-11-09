@@ -3,7 +3,7 @@
 
 App = {
   account: '',
-  address: '0x53a3d9223d4b12dbc960afa0c26a1043fd02e644',
+  address: '0x7f36566ec1bcecd538f5dda833e09e16f36a59b3',
   contract: '',
   options: {
     from: this.account
@@ -43,12 +43,12 @@ App = {
     await promisify(cb => App.contract.addProject(name, hash, collaborators, App.options, cb));
   },
 
-  payProject: async function(hash, amount) {
+  payProject: async function(hash, payee, amount) {
     options = {
       from: App.account,
       value: eth_to_wei(amount)
     };
-    await promisify(cb => App.contract.payProject(hash, options, cb));
+    await promisify(cb => App.contract.payProject(hash, payee, options, cb));
   },
 
   getProject: async function(hash) {
