@@ -69,14 +69,16 @@
                         <form>
 							<div class="row">
 							<div class="col-md-12">
+							<div id="upfile">
 							  <form action="#">
 								  <div class="input-file-container">  
 									<input class="input-file" id="my-file" type="file">
-									<label tabindex="0" for="my-file" class="input-file-trigger btn btn-primary">Upload a file</label>
+									<label tabindex="0" for="my-file" class="input-file-trigger btn btn-primary" onClick="addbutton();">Upload a file</label>
 								  </div>
 								  <p class="file-return"></p>
 							  </form>
-							 </div>
+							</div> 
+							</div>
 							</div>
 							<div class="row">
 							<div class="col-md-12">
@@ -174,7 +176,11 @@
   <script src="assets/js/events.js"></script>
   <script src="assets/js/add.js"></script>
 
-  
+  <script>
+  function addbutton(){ 
+              $("#upfile").append("<button type='submit' class='btn btn-primary' onClick='identifyfile(); return false'>Identify</button>");  
+            }
+  </script>
 
 </body>
 
