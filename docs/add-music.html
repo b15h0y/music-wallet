@@ -12,6 +12,8 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   <!-- Material Kit CSS -->
   <link href="assets/css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
+  
+  <link href="assets/css/fileupload.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -101,11 +103,13 @@
 					  
 					  <div class="row">
                         <div class="col-md-12">
-                          <div class="form-group">
-							<input class="ng-hide" id="input-file-id" multiple type="file" />
-							<label for="input-file-id" class="btn btn-primary">Choose Files <i class="material-icons">add</i></label>
-                            <!--<input type="file" class="form-control" id="file">-->
-                          </div>
+                        <form action="#">
+						  <div class="input-file-container">  
+							<input class="input-file" id="my-file" type="file">
+							<label tabindex="0" for="my-file" class="input-file-trigger btn btn-primary">Upload a file</label>
+						  </div>
+						  <p class="file-return"></p>
+						</form>
                         </div>
                       </div>
 					  <div id="card-collab">
