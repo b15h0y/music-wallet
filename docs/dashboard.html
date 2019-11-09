@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>SpendWise</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <!-- Material Kit CSS -->
+  <link href="assets/css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
+</head>
+
+
+<body>
+  <div class="wrapper ">
+    <div class="sidebar" data-color="purple" data-background-color="white">
+      <!--
+      Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+
+      Tip 2: you can also add an image using data-image tag
+  -->
+      <div class="logo">
+        <a class="simple-text logo-normal">
+          SpendWise
+        </a>
+      </div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+          <li class="nav-item active  ">
+            <a class="nav-link" href="#0">
+              <i class="material-icons">dashboard</i>
+              <p>Company Dashboard</p>
+            </a>
+          </li>
+          <!--li class="nav-item ">
+            <a class="nav-link" href="#0">
+              <i class="material-icons">work</i>
+              <p>Add Company</p>
+            </a>
+          </li-->
+          <li class="nav-item ">
+            <a class="nav-link" href="add-employee.html">
+              <i class="material-icons">person</i>
+              <p>Add Employee</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="add-claim.html">
+              <i class="material-icons">work</i>
+              <p>Allocate Budget</p>
+            </a>
+          </li>
+          <!--li class="nav-item ">
+            <a class="nav-link" href="#0">
+              <i class="material-icons">location_ons</i>
+              <p>Add Service Provider</p>
+            </a>
+          </li-->
+          <!-- your sidebar here -->
+        </ul>
+      </div>
+    </div>
+    <div class="main-panel">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+        <div class="container-fluid">
+          <div class="navbar-wrapper">
+            <a class="navbar-brand" href="#pablo">Company Dashboard</a>
+          </div>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+          </button>
+        </div>
+      </nav>
+      <!-- End Navbar -->
+      <div class="content">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                  <div class="card-header card-header-warning card-header-icon">
+                    <div class="card-icon">
+                      <i class="material-icons">attach_money</i>
+                    </div>
+                    <p class="card-category">Balance</p>
+                    <h3 class="card-title" id="balance">$0
+                    </h3>
+                  </div>
+                  <div class="card-footer">
+                    <div class="stats">
+                      <i class="material-icons">add</i>
+                      <a href="#pablo">Refill Account</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                  <div class="card-header card-header-danger card-header-icon">
+                    <div class="card-icon">
+                      <i class="material-icons">attach_money</i>
+                    </div>
+                    <p class="card-category">Allocated</p>
+                    <h3 class="card-title" id="claims_amount">$0
+                    </h3>
+                  </div>
+                  <div class="card-footer">
+                    <div class="stats">
+                      <i class="material-icons">library_books</i>
+                      <a href="#allocations">Show Allocations</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                  <div class="card-header card-header-info card-header-icon">
+                    <div class="card-icon">
+                      <i class="material-icons">attach_money</i>
+                    </div>
+                    <p class="card-category">Spent</p>
+                    <h3 class="card-title" id="spent_amount">$0
+                    </h3>
+                  </div>
+                  <div class="card-footer">
+                    <div class="stats">
+                      <i class="material-icons">library_books</i>
+                      <a href="#transactions">Show Transactions</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                  <div class="card-header card-header-success card-header-icon">
+                    <div class="card-icon">
+                      <i class="material-icons">person</i>
+                    </div>
+                    <p class="card-category">Employees</p>
+                    <h3 class="card-title" id="employees_count">0</h3>
+                  </div>
+                  <div class="card-footer">
+                      <div class="stats">
+                          <i class="material-icons">library_books</i>
+                          <a href="#employees">Show List</a>
+                        </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card card-chart">
+                      <div class="card-header card-header-success">
+                        <div class="ct-chart" id="dailySalesChart"></div>
+                      </div>
+                      <div class="card-body">
+                        <h4 class="card-title">Monthly Budget</h4>
+                        <!--p class="card-category">
+                          <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55% </span> increase in today sales.</p-->
+                      </div>
+                      <!--div class="card-footer">
+                        <div class="stats">
+                          <i class="material-icons">access_time</i> updated 4 minutes ago
+                        </div>
+                      </div-->
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card card-chart">
+                        <div class="card-header card-header-info">
+                            <div class="ct-chart" id="piechart"></div>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">Category of Expenses</h4>
+
+                        </div>
+                    </div>
+                </div>
+  
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="card">
+                  <div class="card-header card-header-danger">
+                    <h4 class="card-title" id="allocations">Budget Allocations</h4>                    
+                  </div>
+                  <div class="card-body table-responsive">
+                    <table class="table table-hover">
+                      <thead class="text-warning">                        
+                        <th>Employee</th>
+                        <th>Budget</th>
+                        <th>City</th>
+                        <th>Start</th>
+                        <th>End</th>
+                        <th>Category</th>
+                      </thead>
+                      <tbody id="table_claims">                        
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                  <div class="card">
+                    <div class="card-header card-header-info">
+                      <h4 class="card-title" id="transactions">Transactions</h4>
+                    </div>
+                    <div class="card-body table-responsive">
+                      <table class="table table-hover">
+                        <thead class="text-warning">                        
+                          <th>Employee</th>
+                          <th>Amount</th>
+                          <th>Service Provider</th>
+                          <th>City</th>
+                          <th>Time</th>
+                        </thead>
+                        <tbody id="table_transfers">                        
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <div class="row">
+                <div class="col-md-12">
+                  <div class="card">
+                    <div class="card-header card-header-success">
+                      <h4 class="card-title" id="employees">Employees</h4>                      
+                    </div>
+                    <div class="card-body table-responsive">
+                      <table class="table table-hover">
+                        <thead class="text-warning">                                                    
+                          <th>Name</th>                          
+                          <th>City</th>                          
+                          <th>Address</th>                   
+                        </thead>
+                        <tbody id="table_employees">                         
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <script src="assets/js/core/jquery.min.js"></script>
+  <script src="assets/js/core/popper.min.js"></script>
+  <script src="assets/js/core/bootstrap-material-design.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+  <!-- Chartist JS -->
+  <script src="assets/js/plugins/chartist.min.js"></script>
+  <script src="assets/js/material-dashboard.js?v=2.1.1" type="text/javascript"></script>
+  <!--pie chart categories-->
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+  <!--web3-apps-->
+  <script src="assets/js/web3-app.js"></script>
+  <script src="assets/js/events.js"></script>
+
+  <script>
+    function appendRow(table, data) {
+      tr = document.createElement('tr')
+      data.forEach(item => {
+        td = document.createElement('td')
+        td.appendChild(document.createTextNode(item))
+        tr.appendChild(td)
+      })
+      table.appendChild(tr)
+    }
+
+    async function updateBalanceStats() {
+      company = await App.allCompanies(App.account)
+      console.log(company)
+      balance = company[1]
+      console.log('balance: ', balance)
+      document.getElementById('balance').textContent = formatPrice(balance)      
+    }
+
+    function updateClaimsStats(claims) {
+      claims = claims.map(claim => parseInt(claim['args']['budget']))
+      console.log('updateClaims', claims)
+      sum = claims.reduce((total, num) => total + num);
+      console.log('sum', sum)
+      document.getElementById('claims_amount').textContent = formatPrice(parseInt(sum))
+    }
+
+    function updateTransfersStats(transfers) {
+      const _transfers = transfers.map(transfer => parseInt(transfer['event']['args']['amount']))
+      console.log('updateTransfers', _transfers)
+      sum = _transfers.reduce((total, num) => total + num);
+      console.log('sum', sum)
+      document.getElementById('spent_amount').textContent = formatPrice(sum)
+    }
+
+    function updateLineChart(claims) {
+      console.log('claims', claims)
+      const claimsByMonth = {};
+
+      dataDailySalesChart = {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        series: [
+          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        ]
+      };
+
+
+      claims.forEach(item => {
+        const startTime = item['args']['startTime']
+        const month = moment.unix(startTime).format('M') - 1
+        dataDailySalesChart.series[0][month] = dataDailySalesChart.series[0][month] + parseInt(item['args']['budget'])
+      })        
+
+      console.log(dataDailySalesChart)
+      
+      max = Math.max(...dataDailySalesChart.series[0]) + 1000
+
+      optionsDailySalesChart = {
+        lineSmooth: Chartist.Interpolation.cardinal({
+          tension: 0
+        }),
+        low: 0,
+        high: max, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
+        chartPadding: {
+          top: 0,
+          right: 0,
+          bottom: 0,
+          left: 10
+        },
+      }
+
+      var dailySalesChart = new Chartist.Line('#dailySalesChart', dataDailySalesChart, optionsDailySalesChart);
+
+      md.startAnimationForLineChart(dailySalesChart);
+    }
+
+    function updatePieChart(transfers) {      
+      transfersByGroup = {};
+      transfers.forEach(item => {
+        group = item['serviceProvider'][2]
+        transfersByGroup[group] = transfersByGroup[group] || [];
+        transfersByGroup[group].push(item['event'])
+      })
+      var data = {
+        labels: [],
+        series: []
+      };
+      for (group in transfersByGroup) {
+        data.labels.push(group)
+        data.series.push(transfersByGroup[group].length)
+      }
+      
+      
+      var options = {      
+      };
+
+      new Chartist.Pie('#piechart', data, options);
+    }
+
+      async function onWeb3Initialized(){
+        await updateBalanceStats()
+
+        console.log("Web3");
+
+        console.log('account: ' + App.account)
+        employees = await App.getEmployees()        
+        employees = await Promise.all(employees.map(async function (employee) {
+          console.log(employee)
+          return {address: employee, employee: await App.allEmployees(employee)}
+        }))        
+
+        console.log(employees)
+
+        employees.forEach((item) => {
+          table = document.getElementById('table_employees')
+          address = item.address
+          employee = item.employee          
+          appendRow(table, [employee[1], employee[2], address])          
+        })        
+
+        console.log('#employees: ' + employees.length)
+        document.getElementById('employees_count').textContent = employees.length
+
+        claims = []
+        transfers = []
+
+        Events.listenClaim(App.account, async function (claim) {          
+          console.log('claim', claim)
+          if (claims.filter(item => item['blockHash'] == claim['blockHash']).length > 0) {
+            console.log('claim already present')
+            return
+          }
+          claims.push(claim)
+          const table = document.getElementById('table_claims')
+          const args = claim['args']
+          const employee = await App.allEmployees(args['employeeAddress'])
+          row = [
+            employee[1], 
+            formatPrice(args['budget']), 
+            args['city'], 
+            moment.unix(args['startTime']).format('LL'), 
+            moment.unix(args['endTime']).format('LL'),
+            args['category']
+          ]
+          appendRow(table, row)          
+          updateClaimsStats(claims)
+          updateLineChart(claims)
+        })
+
+        Events.listenTransfer(App.account, async function (event) {
+          console.log('transfer ', event)
+          
+          const table = document.getElementById('table_transfers')
+          const args = event['args']
+
+          serviceProvider = await App.allServiceProviders(args['serviceProvider'])          
+          serviceProviderName = serviceProvider[1]
+          city = serviceProvider[2]          
+
+          transfers.push({event: event, serviceProvider: serviceProvider})
+
+          const employee = await App.allEmployees(args['employeeAddress'])
+          row = [
+            employee[1],             
+            formatPrice(args['amount']), 
+            serviceProviderName, 
+            city,
+            moment.unix(args['now']).format('LLL')
+          ]
+          appendRow(table, row)
+          updateTransfersStats(transfers)
+          updatePieChart(transfers)
+        })
+      }
+
+      $(document).ready(function() {
+        // Javascript method's body can be found in assets/js/demos.js
+        md.initDashboardPageCharts();
+        App.init(onWeb3Initialized);
+      });
+    </script>
+
+</body>
+
+</html>

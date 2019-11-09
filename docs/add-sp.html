@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>SpendWise</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <!-- Material Kit CSS -->
+  <link href="assets/css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="wrapper ">
+    <div class="sidebar" data-color="purple" data-background-color="white">
+      <!--
+      Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+
+      Tip 2: you can also add an image using data-image tag
+  -->
+      <div class="logo">
+        <a class="simple-text logo-normal">
+          SpendWise
+        </a>
+      </div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" href="add-company.html">
+              <i class="material-icons">work</i>
+              <p>Add Company</p>
+            </a>
+          </li-->
+          <li class="nav-item active">
+            <a class="nav-link" href="add-sp.html">
+              <i class="material-icons">location_ons</i>
+              <p>Add Service Provider</p>
+            </a>
+          </li>
+          <!-- your sidebar here -->
+        </ul>
+      </div>
+    </div>
+    <div class="main-panel">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+        <div class="container-fluid">
+          <div class="navbar-wrapper">
+            <a class="navbar-brand" href="#pablo">Service Provider Dashboard</a>
+          </div>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+          </button>
+        </div>
+      </nav>
+      <!-- End Navbar -->
+      <div class="content">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-4">
+                  <div class="card card-chart">
+                    <div class="card-header card-header-success">
+                      <div id="qrcode"></div>
+                    </div>
+                    <div class="card-body">
+                      <h4 class="card-title" id="address"></h4>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="card">
+                      <div class="card-header card-header-info">
+                        <h4 class="card-title" id="transactions">Transactions</h4>
+                      </div>
+                      <div class="card-body table-responsive">
+                        <table class="table table-hover">
+                          <thead class="text-warning">
+                            <th>Employee</th>
+                            <th>Amount</th>                            
+                            <th>Time</th>
+                          </thead>
+                          <tbody id="table_transfers">                        
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="card">
+                  <div class="card-header card-header-primary">
+                    <h4 class="card-title">Add Service Provider</h4>
+                    <p class="card-category">Register a new Service Provider</p>
+                  </div>
+                  <div class="card-body">
+                    <form>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <label class="bmd-label-floating">Service Provider Name</label>
+                            <input type="text" class="form-control" id="name" name="name">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                          <div class="col-md-12">
+                            <div class="form-group">
+                              <label class="bmd-label-floating">City</label>
+                              <input type="text" class="form-control" id="city" name="city">
+                            </div>
+                          </div>
+                        </div>
+                      <div class="row">
+                          <div class="col-md-12">
+                            <div class="form-group">
+                              <label class="bmd-label-floating">Category</label>
+                              <div class="dropdown">
+                                  <button class="btn btn-secondary dropdown-toggle" type="button" id="category" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Select
+                                  </button>
+                                  <div class="dropdown-menu" aria-labelledby="category">
+                                    <a class="dropdown-item" href="#" onClick="javascript:setCategory(this); return false">Hotel</a>
+                                    <a class="dropdown-item" href="#" onClick="javascript:setCategory(this); return false">Travel</a>
+                                    <a class="dropdown-item" href="#" onClick="javascript:setCategory(this); return false">Restaurant</a>
+                                    <a class="dropdown-item" href="#" onClick="javascript:setCategory(this); return false">Education</a>
+                                    <a class="dropdown-item" href="#" onClick="javascript:setCategory(this); return false">Inventory</a>
+                                  </div>
+                              </div>
+
+                              <!--input class="form-control" type="text" placeholder="Default input"-->
+                              <!--input type="text" class="form-control"-->
+                            </div>
+                          </div>
+                        </div>
+                      <!--div class="row">
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <label class="bmd-label-floating">Adress</label>
+                            <input type="text" class="form-control">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label class="bmd-label-floating">City</label>
+                            <input type="text" class="form-control">
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label class="bmd-label-floating">Country</label>
+                            <input type="text" class="form-control">
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            <label class="bmd-label-floating">Postal Code</label>
+                            <input type="text" class="form-control">
+                          </div>
+                        </div>
+                      </div-->
+                      <button type="submit" class="btn btn-primary pull-right" onClick="addServiceProvider(); return false">Register</button>
+                      <div class="clearfix"></div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <script src="assets/js/core/jquery.min.js"></script>
+  <script src="assets/js/core/popper.min.js"></script>
+  <script src="assets/js/core/bootstrap-material-design.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+  <!-- Chartist JS -->
+  <script src="assets/js/plugins/chartist.min.js"></script>
+  <script src="assets/js/material-dashboard.js?v=2.1.1" type="text/javascript"></script>
+
+  <script src="assets/js/core/qrcode.js"></script>
+  <script src="assets/js/web3-app.js"></script>
+  <script src="assets/js/events.js"></script>
+
+  <script>
+      $(document).ready(function() {
+        // Javascript method's body can be found in assets/js/demos.js
+        md.initDashboardPageCharts();
+
+      });
+
+      function appendRow(table, data) {
+        tr = document.createElement('tr')
+        data.forEach(item => {
+          td = document.createElement('td')
+          td.appendChild(document.createTextNode(item))
+          tr.appendChild(td)
+        })
+        table.appendChild(tr)
+      }
+      
+      async function onWeb3Initialized() {        
+        console.log("Web3");
+
+        document.getElementById('address').textContent = App.account
+        
+        var qrcode = new QRCode(document.getElementById("qrcode"), {
+        text: 'ethereum:' + App.account,
+          width: 250,
+          height: 250,
+          colorDark : "#000000",
+          colorLight : "#ffffff",
+          correctLevel : QRCode.CorrectLevel.H
+        });
+
+          
+        Events.listenTransferForProvider(App.account, async function (event) {
+          console.log('transfer ', event)
+          transfers.push(event)
+          const table = document.getElementById('table_transfers')
+          const args = event['args']
+                    
+          //serviceProvider = await App.allServiceProviders(args['serviceProvider'])          
+          //serviceProviderName = serviceProvider[1]
+          //city = serviceProvider[2]          
+
+          const employee = await App.allEmployees(args['employeeAddress'])
+          row = [
+            employee[1],             
+            formatPrice(args['amount']),            
+            moment.unix(args['now']).format('LLL')
+          ]
+          appendRow(table, row)          
+        })
+
+        const provider = await App.allServiceProviders(App.account)
+        console.log(provider)        
+        if (provider[0]) { // exists
+          document.getElementById('name').value = provider[1]
+          document.getElementById('city').value = provider[3]
+          document.getElementById('category').textContent = provider[2]
+        }
+    }
+
+    $(document).ready(function() {
+     
+      // Javascript method's body can be found in assets/js/demos.js
+      md.initDashboardPageCharts();
+      App.init(onWeb3Initialized);
+
+    });
+
+    async function addServiceProvider() {
+      const name = document.getElementById('name').value;
+      const city = document.getElementById('city').value;
+      const category = document.getElementById('category').textContent;
+      console.log(name, city, category);
+      await App.addServiceProvider(name, category, city);
+      console.log('provider added');
+      alert('Registration Successful!')
+      window.location = 'add-sp.html';
+    }
+
+    function setCategory(el) {
+      document.getElementById('category').textContent = el.textContent;
+    }
+
+    transfers = [];
+  
+    </script>
+
+</body>
+
+</html>
