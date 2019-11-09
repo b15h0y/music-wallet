@@ -171,6 +171,7 @@
   <script src="assets/js/material-dashboard.js?v=2.1.1" type="text/javascript"></script>
   <!--web3-apps-->
   <script src="assets/js/web3-app.js"></script>
+  <script src="assets/js/hash.js"></script>
   <script src="assets/js/events.js"></script>
   <script src="assets/js/add.js"></script>
 
@@ -186,12 +187,17 @@
   
       });
   
+      
+
       async function pay() {    
-        const hash = document.getElementById('title').value;
+        const file = document.getElementById("input-file-id").files[0];
+        const hash_file = await hash(file);
+        console.log(hash_file);
         const amount = parseFloat(document.getElementById('amount').value);
-        console.log("Pay Called", hash, amount);  
-        App.payProject(hash, amount);  
+        console.log("Pay Called", hash_file, amount);  
+        App.payProject(hash_file, amount);  
       }
+
   </script>
 
 </body>

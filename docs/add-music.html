@@ -112,32 +112,13 @@
 						</form>
                         </div>
                       </div>
-					  <div id="card-collab">
-						  <div class="collabfield">
-							  <div class="row">
-								<div class="col-md-12">
-								  <div class="form-group">
-									<label class="bmd-label-floating">Collaborator Name</label>
-									<input type="text" class="form-control" id="name">
-								  </div>
-								</div>
-							  </div>
-							  <div class="row">
-								  <div class="col-md-12">
-									<div class="form-group">
-									  <label class="bmd-label-floating">Collaborator's Ethereum Address</label>
-									  <input type="text" class="form-control" id="address">
-									</div>
-								  </div>
-								</div>
-							</div>
-						</div>
+					  <div id="card-collab"> </div>
 					  
 					  <div class="row">
                         <div class="col-md-12">
                           <div class="form-group">
-                            <input type="button" value="Add Collaborators" class="btn btn-primary" id="addfield"/>
-							<input type="button" value="Remove Field" class="btn btn-primary" id="removefield"/>
+                            <input type="button" value="Add Collaborators" class="btn btn-primary" id="addfield" onClick="addCollab()"/>
+							               <input type="button" value="Remove Field" class="btn btn-primary" id="removefield"/>
                           </div>
                         </div>
                       </div>
@@ -188,7 +169,7 @@
                           </div>
                         </div>
                       </div-->
-                      <button type="submit" class="btn btn-primary pull-right" onClick="register(); return false">Enter</button>
+                      <button type="submit" class="btn btn-primary pull-right" onClick="register(); return false">Register</button>
                       <div class="clearfix"></div>
                     </form>
                   </div>
@@ -224,6 +205,7 @@
   <script src="assets/js/material-dashboard.js?v=2.1.1" type="text/javascript"></script>
 
   <script src="assets/js/web3-app.js"></script>
+  <script src="assets/js/hash.js"></script>
   <script src="assets/js/add.js"></script>
 
   <script>
@@ -238,16 +220,32 @@
   
       });
   
-      async function register() {    
+      async function register() { 
+        console.log("Register")   
         const name = document.getElementById('name').value;
+        const file = document.getElementById("my-file").files[0];
+        const hash_file = await hash(file);
+        console.log(hash_file);
         const collaborators = [];
-        for (var i = 1; i <= 3; i++) {
-          if(document.getElementById('c' + i + '_address').value != "") {
-            collaborators.push(document.getElementById('c' + i + '_address').value);
+        for (var i = 0; i < count; i++) {
+          if(document.getElementById('name' + i).value != "") {
+            collaborators.push(document.getElementById('address' + i).value);
           }
         }
         console.log("Register Called", name, collaborators);  
         App.addProject(name, name, collaborators);  
+      }
+      var count = 0;
+
+      function addCollab() {
+        console.log("Add", count);
+        $("#card-collab").append("<div class='collabfield'><div class='row'><div class='col-md-12'>"+
+                                 "<div class='form-group'><label class='bmd-label-floating'>Collaborator Name</label><input type='text' class='form-control' id='name" + count + "'>" + 
+                                 "</div></div></div>"+
+                                 "<div class='row'><div class='col-md-12'>"+
+                                 "<div class='form-group'><label class='bmd-label-floating'>Collaborator's Ethereum Address</label><input type='text' class='form-control' id='address" + count + "'>"+
+                                 "</div></div></div></div>");
+        count ++;
       }
   </script>
   
