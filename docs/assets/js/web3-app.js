@@ -3,7 +3,7 @@
 
 App = {
   account: '',
-  address: '0x688673f42d532277ea8ddf172e9fada75947f46d',
+  address: '0x326f8a3e04fb4a82c06d726206e191c58a3017af',
   contract: '',
   options: {
     from: this.account
@@ -23,12 +23,12 @@ App = {
     return App.init_contract(run);
   },
 
-  get_balance: function(cb) {
-    web3.eth.getBalance(App.account, cb);
+  get_balance: async function() {
+    return await promisify(cb => web3.eth.getBalance(App.account, cb));
   },
 
   init_contract: function(run) {
-    $.getJSON( "../build/contracts/erc20.json", function( jsonInterface ) {
+    $.getJSON( "../build/payMusician.json", function( jsonInterface ) {
       //console.log(jsonInterface);
       App.contract = web3.eth.contract(jsonInterface.abi).at(App.address);
       App.account = web3.eth.defaultAccount;
@@ -38,48 +38,22 @@ App = {
     });
   },
 
-  addCompany: async function(companyName, amount) {
+  addProject: async function(name, hash, collaborators) {
+    console.log("Register Web3 Project");
+    await promisify(cb => App.contract.addProject(name, hash, collaborators, App.options, cb));
+  },
+
+  payProject: async function(hash, amount) {
     options = {
       from: App.account,
-      value: amount
+      value: eth_to_wei(amount)
     };
-    await promisify(cb => App.contract.addCompany(companyName, options, cb));
+    await promisify(cb => App.contract.payProject(hash, options, cb));
   },
 
-  addEmployee: async function(empAddr, name, homeCity) {
-    await promisify(cb => App.contract.addEmployee(empAddr, name, homeCity, App.options, cb));
-  },
-
-  addServiceProvider: async function(name, location, category) {
-    await promisify(cb => App.contract.addServiceProvider(name, location, category, App.options, cb));
-  },
-
-  refillAccount: async function() {
-    await promisify(cb => App.contract.refillAccount(App.options, cb));
-  },
-
-  addClaim: async function(employeeAddress, city, priceLimit, startTime, endTime, category) {
-    await promisify(cb => App.contract.addClaim(employeeAddress, city, priceLimit, startTime, endTime, category, App.options, cb));
-  },
-
-  payServiceProvider: async function(serviceProvider, amount) {
-    await promisify(cb => App.contract.payServiceProvider(serviceProvider, amount, App.options, cb));
-  },
-
-  allCompanies: async function(address){
-	return promisify(cb => App.contract.allCompanies(address, App.options, cb));
-	},
-  allEmployees: async function(address){
-	return promisify(cb => App.contract.allEmployees(address, App.options, cb));
-	},
-  allServiceProviders: async function(address){
-	return promisify(cb => App.contract.allServiceProviders(address, App.options, cb));
-	},
-  allClaims: async function(address){
-	return promisify(cb => App.contract.allClaims(address, App.options, cb));
-  },
-  getEmployees: async function() {
-    return promisify(cb => App.contract.getEmployees(App.options, cb));
+  getProject: async function(hash) {
+    console.log("Get Web3 Project ");
+    return await promisify(cb => App.contract.getProject(hash, App.options, cb));
   }
 
 };
