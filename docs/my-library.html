@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>SpendWise</title>
+  <title>Music Wallet</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
@@ -12,6 +12,8 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   <!-- Material Kit CSS -->
   <link href="assets/css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
+  <!--Table -->
+  <link href="assets/css/table.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -24,7 +26,7 @@
   -->
       <div class="logo">        
         <a class="simple-text logo-normal">
-          SpendWise
+          Music Wallet
         </a>
       </div>
       <div class="sidebar-wrapper">
@@ -32,7 +34,7 @@
           <li class="nav-item ">
             <a class="nav-link" href="dashboard.html">
               <i class="material-icons">dashboard</i>
-              <p>Company Dashboard</p>
+              <p>My Dashboard</p>
             </a>            
           </li>
           <!--li class="nav-item ">
@@ -42,15 +44,15 @@
             </a>            
           </li-->
           <li class="nav-item ">
-              <a class="nav-link" href="add-employee.html">
-                <i class="material-icons">person</i>
-                <p>Add Employee</p>
+              <a class="nav-link" href="add-music.html">
+                <i class="material-icons">add</i>
+                <p>Upload Music</p>
               </a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="add-claim.html">
-                <i class="material-icons">work</i>
-                <p>Allocate Budget</p>
+              <a class="nav-link" href="my-library.html">
+                <i class="material-icons">library_music</i>
+                <p>Catalogue</p>
               </a>
             </li>
           <!--li class="nav-item ">
@@ -68,7 +70,7 @@
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="#pablo">Allocate Budget</a>
+            <a class="navbar-brand" href="#">Catalogue</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -83,109 +85,97 @@
           <div class="container-fluid">
             <div class="row">
               <div class="col-md-12">
-                <div class="card">
-                  <div class="card-header card-header-primary">
-                    <h4 class="card-title">Allocate Budget</h4>
-                    <p class="card-category">Allocate expense budget for an employee</p>
-                  </div>
-                  <div class="card-body">
-                    <form>
-                      <div class="row">
-                        <div class="col-md-12">
-                          <div class="form-group">
-                            <label class="bmd-label-floating">Employee Name</label>
-                            <!--input type="text" class="form-control" id="name"-->
-                            
-                            <div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" id="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                  Select
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="category" id="name_dropdown">
-                                </div>
-                            </div>
-
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-6">
-                          <div class="form-group">
-                            <label class="bmd-label-floating">Budget (Ξ)</label>
-                            <input type="text" class="form-control" id="budget">
-                          </div>
-                        </div>
-                      
-                        <div class="col-md-6">
-                          <div class="form-group">
-                            <label class="bmd-label-floating">Select Date</label>
-                            <input type="text" class="form-control" name="daterange" id="daterange" />
-                            </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                          <div class="col-md-6">
-                            <div class="form-group">
-                              <label class="bmd-label-floating">City</label>
-                              <input type="text" class="form-control" id="city">
-                            </div>
-                          </div>
-                        
-                            <div class="col-md-6">
-                              <div class="form-group">
-                                <label class="bmd-label-floating">Category</label>
-                                <div class="dropdown">
-                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="category" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                      Select
-                                    </button>
-                                    <div class="dropdown-menu" aria-labelledby="category">
-                                      <a class="dropdown-item" href="#" onClick="javascript:setCategory(this); return false">Hotel</a>
-                                      <a class="dropdown-item" href="#" onClick="javascript:setCategory(this); return false">Travel</a>
-                                      <a class="dropdown-item" href="#" onClick="javascript:setCategory(this); return false">Restaurant</a>
-                                      <a class="dropdown-item" href="#" onClick="javascript:setCategory(this); return false">Education</a>
-                                      <a class="dropdown-item" href="#" onClick="javascript:setCategory(this); return false">Inventory</a>
-                                    </div>
-                                </div>
-  
-                                <!--input class="form-control" type="text" placeholder="Default input"-->
-                                <!--input type="text" class="form-control"-->
-                              </div>
-                            </div>
-                          </div>
-                 
-                      <!--div class="row">
-                        <div class="col-md-12">
-                          <div class="form-group">
-                            <label class="bmd-label-floating">Adress</label>
-                            <input type="text" class="form-control">
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-4">
-                          <div class="form-group">
-                            <label class="bmd-label-floating">City</label>
-                            <input type="text" class="form-control">
-                          </div>
-                        </div>
-                        <div class="col-md-4">
-                          <div class="form-group">
-                            <label class="bmd-label-floating">Country</label>
-                            <input type="text" class="form-control">
-                          </div>
-                        </div>
-                        <div class="col-md-4">
-                          <div class="form-group">
-                            <label class="bmd-label-floating">Postal Code</label>
-                            <input type="text" class="form-control">
-                          </div>
-                        </div>
-                      </div-->
-                      <button type="submit" class="btn btn-primary pull-right" onClick="addClaim(); return false">Enter</button>
-                      <div class="clearfix"></div>
-                    </form>
-                  </div>
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title ">My Catalogue</h4>
+                  <p class="card-category"> Musics you have uploaded.</p>
                 </div>
-              </div>             
+                <div class="card-body">
+								<!--<div class="table-data__tool">
+                                    <div class="table-data__tool-left">
+                                        <div class="rs-select2--light rs-select2--md">
+                                            <select class="js-select2" name="property">
+                                                <option selected="selected">All</option>
+                                                <option value="">Published</option>
+                                                <option value="">Drafts</option>
+                                            </select>
+                                            <div class="dropDownSelect2"></div>
+                                        </div>
+                                        <div class="rs-select2--light rs-select2--sm">
+                                            <select class="js-select2" name="time">
+                                                <option selected="selected">Today</option>
+                                                <option value="">1 week</option>
+                                                <option value="">Earlier</option>
+                                            </select>
+                                            <div class="dropDownSelect2"></div>
+                                        </div>
+                                        <button class="au-btn-filter">
+                                            <i class="zmdi zmdi-filter-list"></i>filter</button>
+                                    </div>
+                                    
+                                </div>-->
+                                <div class="table-responsive table-responsive-data2">
+                                    <table class="table table-data2">
+                                        <thead>
+                                            <tr>
+                                                <th>Music Title</th>
+                                                <th>Total Earning</th>
+                                                <th>date</th>
+                                                <th>status</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="tr-shadow">
+                                                <td>High for the weekend</td>
+                                                <td class="desc">$42,563</td>
+                                                <td>2019-09-27 02:12</td>
+                                                <td>
+                                                    <span class="status--process">Active</span>
+                                                </td>
+                                                
+                                            </tr>
+                                            <tr class="spacer"></tr>
+                                            <tr class="tr-shadow">
+                                                <td>Moveaway</td>
+                                                <td class="desc">$33,455</td>
+                                                <td>2019-04-29 05:57</td>
+                                                <td>
+                                                    <span class="status--process">Active</span>
+                                                </td>
+                                            </tr>
+                                            <tr class="spacer"></tr>
+                                            <tr class="tr-shadow">
+                                                <td>Highway rider</td>
+                                                <td class="desc">$8,466</td>
+                                                <td>2018-09-25 19:03</td>
+                                                <td>
+                                                    <span class="status--denied">Inactive</span>
+                                                </td>
+                                            </tr>
+                                            <tr class="spacer"></tr>
+                                            <tr class="tr-shadow">
+                                                <td>With you</td>
+                                                <td class="desc">$1,214,333</td>
+                                                <td>2018-09-24 19:10</td>
+                                                <td>
+                                                    <span class="status--process">Active</span>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+									
+                                </div>
+                </div>
+              </div>
+            </div>            
+            </div>
+			<div class="row">
+                        <div class="col-md-12" style="align:center;">
+                          <div class="form-group">
+                            <input type="button" value="Load More" class="btn btn-primary pull-right" onClick="addMore();"/>
+                          </div>
+                        </div>
             </div>
           </div>
         </div>
