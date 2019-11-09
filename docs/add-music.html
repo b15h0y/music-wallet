@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>SpendWise</title>
+  <title>Music Wallet</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
@@ -24,7 +24,7 @@
   -->
       <div class="logo">        
         <a class="simple-text logo-normal">
-          SpendWise
+          Music Wallet
         </a>
       </div>
       <div class="sidebar-wrapper">
@@ -32,7 +32,7 @@
           <li class="nav-item ">
             <a class="nav-link" href="dashboard.html">
               <i class="material-icons">dashboard</i>
-              <p>Company Dashboard</p>
+              <p>My Dashboard</p>
             </a>            
           </li>
           <!--li class="nav-item ">
@@ -42,9 +42,9 @@
             </a>            
           </li-->
           <li class="nav-item active">
-              <a class="nav-link" href="add-employee.html">
-                <i class="material-icons">person</i>
-                <p>Add Employee</p>
+              <a class="nav-link" href="add-music.html">
+                <i class="material-icons">add</i>
+                <p>Upload Music</p>
               </a>
             </li>
             <li class="nav-item ">
@@ -68,7 +68,7 @@
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="#pablo">Add Employee</a>
+            <a class="navbar-brand" href="#pablo">Upload Music</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -85,15 +85,24 @@
               <div class="col-md-12">
                 <div class="card">
                   <div class="card-header card-header-primary">
-                    <h4 class="card-title">Add Employee</h4>
-                    <p class="card-category">Enter Employee expense details</p>
+                    <h4 class="card-title">Upload Music</h4>
+                    <p class="card-category">Upload your music file.</p>
                   </div>
                   <div class="card-body">
                     <form>
+					  <div class="row">
+                        <div class="col-md-12">
+                          <div class="form-group">
+							<input class="ng-hide" id="input-file-id" multiple type="file" />
+							<label for="input-file-id" class="btn btn-primary">Choose Files<i class="material-icons">add</i></label>
+                            <!--<input type="file" class="form-control" id="file">-->
+                          </div>
+                        </div>
+                      </div>
                       <div class="row">
                         <div class="col-md-12">
                           <div class="form-group">
-                            <label class="bmd-label-floating">Employee Name</label>
+                            <label class="bmd-label-floating">Collaborators Name</label>
                             <input type="text" class="form-control" id="name">
                           </div>
                         </div>
@@ -101,7 +110,7 @@
                       <div class="row">
                           <div class="col-md-12">
                             <div class="form-group">
-                              <label class="bmd-label-floating">Employee Ethereum Address</label>
+                              <label class="bmd-label-floating">Collaborators Ethereum Address</label>
                               <input type="text" class="form-control" id="address">
                             </div>
                           </div>
@@ -160,7 +169,7 @@
                           </div>
                         </div>
                       </div-->
-                      <button type="submit" class="btn btn-primary pull-right" onClick="addEmployee(); return false">Enter</button>
+                      <button type="submit" class="btn btn-primary pull-right" onClick="addCollaborators(); return false">Enter</button>
                       <div class="clearfix"></div>
                     </form>
                   </div>
@@ -208,13 +217,13 @@
   
       });
   
-      async function addEmployee() {        
+      async function addCollaborators() {        
         const name = document.getElementById('name').value;
         const address = document.getElementById('address').value;
         const city = document.getElementById('city').value;
         console.log(address, name, city);
-        await App.addEmployee(address, name, city);
-        console.log('employee added');
+        await App.addCollaborators(address, name, city);
+        console.log('Collaborators added');
         alert('Registration Successful!')
         window.location = 'dashboard.html';
       }
