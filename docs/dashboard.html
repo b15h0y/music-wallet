@@ -65,6 +65,16 @@
           </li-->
           <!-- your sidebar here -->
         </ul>
+		<div class="boxes">
+			<div class="boxes__inner">
+			  <div class="box js-box"></div>
+			  <div class="box js-box"></div>
+			  <div class="box js-box"></div>
+			  <div class="box js-box"></div>
+			  <div class="box js-box"></div>
+			  <div class="box js-box"></div>
+			</div>
+		  </div>
       </div>
     </div>
     <div class="main-panel">
@@ -329,6 +339,8 @@
   <!--web3-apps-->
   <script src="assets/js/web3-app.js"></script>
   <script src="assets/js/events.js"></script>
+  <!--Anime.js-->
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.0.1/lib/anime.min.js"></script>
 
   <script>
       async function onWeb3Initialized() {
@@ -362,6 +374,28 @@
         md.initDashboardPageCharts();
         App.init(onWeb3Initialized);
       });
+	  
+	  const boxesAnimation = window.anime({
+		  targets: '.js-box',
+		  translateY: [150, 50, 150],
+		  backgroundColor: {
+			value: (el, i, t) => {
+			  const r = 58 + (i * 12);
+			  const g = 35 + (i * 12);
+			  const b = 220;
+			  const color = `rgb(${r}, ${g}, ${b})`;
+			  return color;
+			},
+			easing: 'easeInOutSine',
+			duration: 400,
+		  },
+		  duration: 1500,
+		  easing: 'easeOutElastic',
+		  elasticity: 500,
+		  delay: (el, i, t) => i * 20,
+		  loop: true,
+		  direction: 'alternate',
+		});
     </script>
 
 </body>
