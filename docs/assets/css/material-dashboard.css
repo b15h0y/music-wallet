@@ -14475,9 +14475,10 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
   top: 0;
   bottom: 0;
   left: 0;
+  color: white;
   z-index: 2;
   width: 260px;
-  background: #fff;
+  background: #2C3E4E;
   box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
 }
 
@@ -14635,6 +14636,7 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
   display: block;
   height: auto;
   white-space: nowrap;
+  color: white;
 }
 
 .sidebar .nav i {
@@ -14713,7 +14715,7 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
   padding: 5px 0px;
   display: inline-block;
   font-size: 18px;
-  color: #3C4858;
+  color: white;
   white-space: nowrap;
   font-weight: 400;
   line-height: 30px;
@@ -14756,11 +14758,11 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
 }
 
 .sidebar[data-background-color="black"] .user a {
-  color: #fff;
+  color: white;
 }
 
 .sidebar[data-background-color="black"] .simple-text {
-  color: #fff;
+  color: white;
 }
 
 .sidebar[data-background-color="black"] .sidebar-background:after {
