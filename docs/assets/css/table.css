@@ -514,3 +514,24 @@
 .table-data3 tbody td.denied {
     color: #fa4251;
 }
+
+
+
+/*anime*/
+/*
+.box {
+  width: 42px;
+  height: 60px;
+}
+.boxes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+}
+.boxes__inner {
+  display: flex;
+  overflow: hidden;
+  height: 80px;
+}*/

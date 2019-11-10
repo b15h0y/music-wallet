@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Music Wallet</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <!-- Material Kit CSS -->
+  <link href="assets/css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
+  <link href="assets/css/fileupload.css" rel="stylesheet" />
+  <link href="assets/css/styles.css" rel="stylesheet" />
+
+</head>
+
+<body>
+  <div class="wrapper ">
+    <div class="sidebar" data-color="purple" data-background-color="white">
+      <!--
+      Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+
+      Tip 2: you can also add an image using data-image tag
+  -->
+      <div class="logo">
+        <a class="simple-text logo-normal" href="index.html">
+          Music Wallet
+        </a>
+      </div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+          <li class="nav-item  ">
+            <a class="nav-link" href="user.html">
+              <i class="material-icons">payment</i>
+              <p>Pay</p>
+            </a>
+          </li>
+		  <li class="nav-item active ">
+            <a class="nav-link" href="play.html">
+              <i class="material-icons">play_arrow</i>
+              <p>Player</p>
+            </a>
+          </li>
+          <!-- your sidebar here -->
+        </ul>
+      </div>
+    </div>
+    <div class="main-panel">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+        <div class="container-fluid">
+          <div class="navbar-wrapper">
+            <a class="navbar-brand" href="#">User Player</a>
+          </div>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+          </button>
+        </div>
+      </nav>
+      <!-- End Navbar -->
+      <div class="content">
+            <div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12">
+				<div id="upfile">
+				  <form action="#">
+					  <div class="input-file-container">  
+						<input class="input-file" id="my-file" type="file">
+						<label tabindex="0" for="my-file" class="input-file-trigger btn btn-primary">Upload a music</label>
+					  </div>
+					  <p class="file-return"></p>
+				  </form>
+				</div> 
+				</div>
+			</div>		
+			<div id="container" class="disabled">
+
+			<div id="cover-art">
+				<div id="cover-art-big"></div>
+				<img id="cover-art-small" alt="cover-art-small" src="assets/img/default.png">
+				<div class="instructions">Drop your audio files here.</div>
+			</div>
+
+			<div id="wave"></div>
+
+			<div id="control-bar">
+
+				<div class="player-control">
+					<div id="previous-button" title="Previous"><i class="fa fa-fast-backward"></i></div>
+					<div id="play-button" title="Play"><i class="fa fa-play"></i></div>
+					<div id="pause-button" title="Pause"><i class="fa fa-pause"></i></div>
+					<div id="stop-button" title="Stop"><i class="fa fa-stop"></i></div>
+					<div id="next-button" title="Next"><i class="fa fa-fast-forward"></i></div>
+					<div id="shuffle-button" title="Shuffle Off"><i class="fa fa-random"></i></div>
+					<div id="repeat-button" title="Repeat Off"><i class="fa fa-refresh"><span>1</span></i></div>
+				</div>
+
+				<div id="playlist">
+
+					<div id="track-details" title="Show playlist">
+						<i class="fa fa-sort"></i>
+						<p id="track-desc">There are no tracks loaded in the player.</p>
+						<p id="track-time">
+							<span id="current">-</span> / <span id="total">-</span>
+						</p>
+					</div>
+
+					<div id="expand-bar" class="hidden">
+
+						<form>
+							<label for="searchBox">Search</label><div><input id="searchBox" type="search" name="search"></div>
+						</form>
+						<ul id="list"></ul>
+					</div>
+
+				</div>
+
+			</div>
+
+			<div id="drop-zone" class="hidden">Drag &amp; Drop Files Here</div>
+
+			</div>
+
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <script src="assets/js/core/jquery.min.js"></script>
+  <script src="assets/js/core/popper.min.js"></script>
+  <script src="assets/js/core/bootstrap-material-design.min.js"></script>
+  <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
+  <!-- Chartist JS -->
+  <script src="assets/js/plugins/chartist.min.js"></script>
+  <script src="assets/js/material-dashboard.js?v=2.1.1" type="text/javascript"></script>
+  <!--web3-apps-->
+  <script src="assets/js/web3-app.js"></script>
+  <script src="assets/js/hash.js"></script>
+  <script src="assets/js/events.js"></script>
+  <script src="assets/js/add.js"></script>
+  <!--Player-->
+	<script src="assets/js/id3-minimized.js"></script>
+	<script src="assets/js/wavesurfer.min.js"></script>
+	<script src="assets/js/script.js"></script>
+	
+   <script>
+      async function onWeb3Initialized() {
+        console.log("Web3");
+        await updateBalance();
+      }
+  
+      $(document).ready(function() {
+        md.initDashboardPageCharts();
+        App.init(onWeb3Initialized);
+      });
+
+      async function pay() {
+        var title = document.getElementById('title').value;
+        var payee = document.getElementById('payee').value;
+        var hash_file = "";
+        if(title != "") {
+          hash_file = await App.getHash(title);
+          console.log(hash_file);
+        } else {
+          const file = document.getElementById("my-file").files[0];
+          hash_file = await hash(file);
+          console.log(hash_file);
+        }
+        const amount = parseFloat(document.getElementById('amount').value);
+        console.log("Pay Called", hash_file, amount);  
+        App.payProject(hash_file, payee, amount);  
+      }
+
+      async function updateBalance() {
+        var balance = await App.getBalance();
+        document.getElementById("balance").innerText = balance.c[0];
+      }
+
+      function pausecomp(millis){
+          var date = new Date();
+          var curDate = null;
+          do { curDate = new Date(); }
+          while(curDate-date < millis);
+      }
+	  
+	  function slidetimer() {
+		var current_progress = 0;
+		var interval = setInterval(function() {
+			current_progress += 10;
+			$("#dynamicbar")
+			.css("width", current_progress + "%")
+			.attr("aria-valuenow", current_progress);
+			if (current_progress >= 100)
+			    clearInterval(interval);
+			}, 1000);
+		};
+  </script>
+
+</body>
+
+</html>

@@ -32,9 +32,15 @@
       <div class="sidebar-wrapper">
         <ul class="nav">
           <li class="nav-item active  ">
-            <a class="nav-link" href="#0">
+            <a class="nav-link" href="#">
               <i class="material-icons">payment</i>
               <p>Pay</p>
+            </a>
+          </li>
+		  <li class="nav-item  ">
+            <a class="nav-link" href="play.html">
+              <i class="material-icons">play_arrow</i>
+              <p>Player</p>
             </a>
           </li>
           <!-- your sidebar here -->
@@ -143,10 +149,10 @@
 								</div>
 							  </div>
 							</div>
-							<button type="submit" class="btn btn-primary pull-right" onClick="pay(); return false">Pay</button>
+							<button type="submit" class="btn btn-primary pull-right" onClick="pay();return false">Pay</button>
 							<div class="clearfix"></div>
-							<div class="progress pull-right" style="height: 3px;width: 25%;">
-							  <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+							<div class="progress pull-right" id="pb" style="height: 3px;width: 25%; opacity: 0">
+							  <div id="dynamicbar" class="progress-bar" role="progressbar" style="width:0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
 							</div>
 						</form>
                       </div>                      
@@ -184,6 +190,7 @@
       });
 
       async function pay() {
+        slidetimer()
         var title = document.getElementById('title').value;
         var payee = document.getElementById('payee').value;
         var hash_file = "";
@@ -197,6 +204,7 @@
         }
         const amount = parseFloat(document.getElementById('amount').value);
         console.log("Pay Called", hash_file, amount);  
+        done = 1;
         App.payProject(hash_file, payee, amount);  
       }
 
@@ -211,6 +219,24 @@
           do { curDate = new Date(); }
           while(curDate-date < millis);
       }
+	  
+  	  var done = 0;
+      function slidetimer() {
+        pb = document.getElementById("pb");
+        pb.setAttribute("style", "height: 3px;width: 25%; opacity: 100;");
+        var current_progress = 0;
+        var interval = setInterval(function() {
+          current_progress += 10;
+          if(done == 1) {
+            current_progress = 100;
+          }
+          $("#dynamicbar")
+          .css("width", current_progress + "%")
+          .attr("aria-valuenow", current_progress);
+          if (current_progress >= 100)
+              clearInterval(interval);
+          }, 1000);
+      };
   </script>
 
 </body>
