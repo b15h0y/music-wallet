@@ -28,7 +28,7 @@ App = {
   },
 
   init_contract: function(run) {
-    $.getJSON( "../build/payMusician.json", function( jsonInterface ) {
+    $.getJSON( "build/payMusician.json", function( jsonInterface ) {
       //console.log(jsonInterface);
       App.contract = web3.eth.contract(jsonInterface.abi).at(App.address);
       App.account = web3.eth.defaultAccount;
