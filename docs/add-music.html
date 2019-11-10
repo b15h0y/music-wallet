@@ -93,7 +93,7 @@
                     <p class="card-category">Upload your music file.</p>
                   </div>
                   <div class="card-body" id="card-body">
-                    <form>
+                    <form name="musicform">
 					<div class="row">
                         <div class="col-md-12">
                           <div class="form-group">
@@ -107,7 +107,7 @@
                         <div class="col-md-12">
                         <form action="#">
 						  <div class="input-file-container">  
-							<input class="input-file" id="my-file" type="file">
+							<input class="input-file" id="my-file" type="file" name="file">
 							<label tabindex="0" for="my-file" class="input-file-trigger btn btn-primary">Upload a file</label>
 						  </div>
 						  <p class="file-return"></p>
@@ -170,7 +170,7 @@
                           </div>
                         </div>
                       </div-->
-                      <button type="submit" class="btn btn-primary pull-right" onClick="register(); slidetimer(); return false">Register</button>
+                      <button type="submit" class="btn btn-primary pull-right" onClick="register(); slidetimer(); validateForm(); return false">Register</button>
                       <div class="clearfix"></div>
 					  <div class="progress pull-right" style="height: 3px;width: 25%;">
 						  <div id="dynamicbar" class="progress-bar" role="progressbar" style="width:0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
@@ -273,7 +273,15 @@
 			    clearInterval(interval);
 			}, 1000);
 		};
-	  
+		
+	  function validateForm() {
+		  var x = document.forms["musicform"]["file"].value;
+		  if (x == "") {
+			alert("Please upload a file");
+			return false;
+		  }
+		}
+		
   </script>
   
 </body>
